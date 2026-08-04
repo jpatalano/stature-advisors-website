@@ -1,412 +1,931 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stature Advisors — Technology Advisory for Founders & PE Firms</title>
-  <meta name="description" content="Two CEOs. 30+ years each. We advise founders and private equity firms on how to use technology to grow, scale, increase EBITDA, and exit. Stature Advisors is backed by Stature Software, our enterprise build arm." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.statureadvisors.com/" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@300,400,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.statureadvisors.com/" />
-  <meta property="og:title" content="Stature Advisors — Technology Advisory for Founders & PE Firms" />
-  <meta property="og:description" content="Two CEOs. 30+ years each. We advise founders and PE firms on how to use technology to grow, scale, increase EBITDA, and exit." />
-  <meta property="og:image" content="https://www.statureadvisors.com/og-image.png" />
+    :root {
+      --bg: #0d0f0e;
+      --surface: #151c24;
+      --fg: #f0ede8;
+      --fg-muted: rgba(240,237,232,0.45);
+      --fg-dim: rgba(240,237,232,0.2);
+      --teal: #3fa8b0;
+      --teal-dim: rgba(63,168,176,0.12);
+      --font-display: 'Cabinet Grotesk', system-ui, sans-serif;
+      --font-body: 'Satoshi', system-ui, sans-serif;
+    }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Stature Advisors" />
-  <meta name="twitter:description" content="Technology advisory for founders and PE firms. Two CEOs, 30+ years each." />
+    html { scroll-behavior: smooth; }
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Stature Advisors",
-    "description": "Technology advisory firm helping founders and PE firms grow, scale, and exit through strategic software deployment.",
-    "url": "https://www.statureadvisors.com",
-    "areaServed": "US",
-    "serviceType": ["Technology Advisory", "Software Architecture", "PE Portfolio Advisory", "AI Integration"],
-    "founder": [
-      { "@type": "Person", "name": "Joe Patalano" },
-      { "@type": "Person", "name": "Gregory Silvano" }
-    ],
-    "sameAs": ["https://www.staturesoftware.com"]
-  }
-  </script>
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="js/main.js" defer></script>
+    /* ── GRAIN OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+      animation: fadeDown 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+    }
+
+    nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(13,15,14,0.9) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .nav-logo {
+      position: relative;
+      z-index: 1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .nav-logo svg { display: block; }
+
+    .nav-links {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      color: var(--fg-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--fg); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(63,168,176,0.4);
+      border-radius: 9999px;
+      color: var(--teal) !important;
+      font-size: 0.8rem !important;
+      letter-spacing: 0.08em !important;
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal) !important;
+      color: var(--bg) !important;
+      border-color: var(--teal) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      padding: 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Radial ambient glow behind heading */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 65% 55% at 35% 50%, rgba(63,168,176,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Subtle grid lines */
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-grid-lines::before {
+      content: '';
+      position: absolute;
+      left: calc(53.5% - 0.5px);
+      top: 8%;
+      bottom: 8%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(63,168,176,0.15) 30%, rgba(63,168,176,0.15) 70%, transparent);
+    }
+
+    /* ── HERO LEFT ── */
+    .hero-left {
+      padding-right: 4rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: riseBlur 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .hero-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5.5vw, 7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 0.93;
+      color: var(--fg);
+      max-width: 14ch;
+      opacity: 0;
+      animation: riseBlur 0.9s cubic-bezier(0.16,1,0.3,1) 0.32s forwards;
+    }
+
+    .hero-heading em {
+      font-style: normal;
+      color: var(--fg-muted);
+      font-weight: 300;
+    }
+
+    /* ── HERO RIGHT ── */
+    .hero-right {
+      padding-left: 4rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 80vh;
+      gap: 0;
+    }
+
+    .hero-statement {
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+      font-weight: 500;
+      color: var(--fg);
+      line-height: 1.4;
+      max-width: 36ch;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: riseBlur 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+    }
+
+    .hero-sub {
+      font-size: clamp(0.875rem, 1vw, 1rem);
+      color: var(--fg-muted);
+      line-height: 1.7;
+      max-width: 38ch;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: riseBlur 0.8s cubic-bezier(0.16,1,0.3,1) 0.62s forwards;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 2rem;
+      background: var(--teal);
+      color: var(--bg);
+      border-radius: 9999px;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+      opacity: 0;
+      animation: riseBlur 0.8s cubic-bezier(0.16,1,0.3,1) 0.74s forwards;
+      align-self: flex-start;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(63,168,176,0.25);
+    }
+
+    .hero-cta:active { transform: translateY(0) scale(0.98); }
+
+    .hero-cta svg { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+    .hero-cta:hover svg { transform: translateX(3px); }
+
+    /* ── STAT ROW ── */
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--fg-dim);
+      opacity: 0;
+      animation: riseBlur 0.8s cubic-bezier(0.16,1,0.3,1) 0.86s forwards;
+    }
+
+    .stat-item {}
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      color: var(--fg);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .stat-num span {
+      color: var(--teal);
+      font-weight: 400;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-top: 0.4rem;
+      font-family: var(--font-display);
+    }
+
+    /* ── MARQUEE STRIP ── */
+    .marquee-strip {
+      background: rgba(63,168,176,0.06);
+      border-top: 1px solid rgba(63,168,176,0.12);
+      border-bottom: 1px solid rgba(63,168,176,0.12);
+      padding: 1rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 4rem;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .marquee-item {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .marquee-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ── MANDATE SECTION ── */
+    .section {
+      padding: 7rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .mandate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .mandate-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 4.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      color: var(--fg);
+    }
+
+    .mandate-heading em {
+      font-style: normal;
+      color: var(--fg-muted);
+      font-weight: 300;
+    }
+
+    .mandate-right {
+      padding-top: 0.5rem;
+    }
+
+    .mandate-body {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--fg-muted);
+      max-width: 44ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .mandate-body strong {
+      color: var(--fg);
+      font-weight: 500;
+    }
+
+    /* ── PILLARS ── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--fg-dim);
+      border: 1px solid var(--fg-dim);
+      margin-top: 5rem;
+    }
+
+    .pillar {
+      background: var(--bg);
+      padding: 3rem 2.5rem;
+      transition: background 0.4s ease;
+    }
+
+    .pillar:hover { background: rgba(63,168,176,0.04); }
+
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .pillar-body {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--fg-muted);
+    }
+
+    /* ── PROCESS ── */
+    .process-section {
+      padding: 7rem 3rem;
+      background: rgba(255,255,255,0.018);
+      border-top: 1px solid var(--fg-dim);
+      border-bottom: 1px solid var(--fg-dim);
+    }
+
+    .process-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      border: 1px solid var(--fg-dim);
+    }
+
+    .process-step {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid var(--fg-dim);
+      position: relative;
+    }
+
+    .process-step:last-child { border-right: none; }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: var(--fg-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      margin-bottom: 0.75rem;
+    }
+
+    .step-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border: 1px solid rgba(63,168,176,0.3);
+      border-radius: 9999px;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-display);
+    }
+
+    .step-body {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--fg-muted);
+    }
+
+    /* ── FOUNDERS ── */
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--fg-dim);
+      border: 1px solid var(--fg-dim);
+      margin-top: 4rem;
+    }
+
+    .founder-card {
+      background: var(--bg);
+      padding: 3.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founder-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--teal), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .founder-card:hover::after { transform: scaleX(1); }
+
+    .founder-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--fg);
+      margin-bottom: 0.3rem;
+    }
+
+    .founder-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 2rem;
+      font-family: var(--font-display);
+    }
+
+    .founder-bio {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--fg-muted);
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      padding: 8rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(63,168,176,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-band-inner {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.93;
+      color: var(--fg);
+      margin-bottom: 2rem;
+    }
+
+    .cta-sub {
+      font-size: 1rem;
+      color: var(--fg-muted);
+      max-width: 40ch;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1.1rem 2.5rem;
+      background: var(--teal);
+      color: var(--bg);
+      border-radius: 9999px;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 50px rgba(63,168,176,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--fg-dim);
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-legal {
+      font-size: 0.78rem;
+      color: var(--fg-muted);
+      letter-spacing: 0.05em;
+      font-family: var(--font-display);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+      font-family: var(--font-display);
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover { color: var(--fg); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes riseBlur {
+      from { opacity: 0; transform: translateY(24px); filter: blur(8px); }
+      to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+        padding-top: 6rem;
+        align-items: flex-start;
+        gap: 3rem;
+      }
+
+      .hero-left { padding-right: 0; }
+      .hero-right {
+        padding-left: 0;
+        min-height: auto;
+        justify-content: flex-start;
+      }
+
+      .hero-grid-lines { display: none; }
+
+      .mandate-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step { border-right: none; border-bottom: 1px solid var(--fg-dim); }
+      .process-step:last-child { border-bottom: none; }
+      .founders-grid { grid-template-columns: 1fr; }
+      .section { padding: 5rem 1.5rem; }
+      .process-section { padding: 5rem 1.5rem; }
+      .cta-band { padding: 5rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo" aria-label="Stature Advisors home">
-        <svg width="210" height="28" viewBox="0 0 210 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <text x="0" y="20" font-family="Cabinet Grotesk,Helvetica Neue,Arial,sans-serif" font-size="15" font-weight="500" letter-spacing="3.5" fill="#3fa8b0">STATURE</text>
-          <rect x="88" y="3" width="1.5" height="22" fill="#3fa8b0"/>
-          <text x="96" y="20" font-family="Cabinet Grotesk,Helvetica Neue,Arial,sans-serif" font-size="15" font-weight="500" letter-spacing="3.5" fill="#3fa8b0">ADVISORS</text>
-        </svg>
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo" aria-label="Stature Advisors">
+      <svg width="215" height="28" viewBox="0 0 215 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="20" font-family="Cabinet Grotesk,Helvetica Neue,Arial,sans-serif" font-size="15" font-weight="500" letter-spacing="3.5" fill="#3fa8b0">STATURE</text>
+        <rect x="90" y="3" width="1.5" height="22" fill="#3fa8b0"/>
+        <text x="99" y="20" font-family="Cabinet Grotesk,Helvetica Neue,Arial,sans-serif" font-size="15" font-weight="500" letter-spacing="3.5" fill="#3fa8b0">ADVISORS</text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="#mandate">About</a>
+      <a href="#process">How We Work</a>
+      <a href="#founders">Founders</a>
+      <a href="contact.html" class="nav-cta">Start a Diagnostic</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-lines"></div>
+
+    <!-- Left: Massive heading -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">Technology Advisory</div>
+      <h1 class="hero-heading">
+        We are <em>not</em><br>
+        developers<br>
+        who learned<br>
+        business later.
+      </h1>
+    </div>
+
+    <!-- Right: Offset content -->
+    <div class="hero-right">
+      <p class="hero-statement">
+        We are business advisors who understand the full software development lifecycle.
+      </p>
+      <p class="hero-sub">
+        Two CEOs. 30+ years each. We advise founders and PE firms on how to use technology to grow, scale, increase EBITDA, and exit.
+      </p>
+      <a href="contact.html" class="hero-cta">
+        Start a Diagnostic
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <ul class="nav__links" role="list">
-        <li><a href="/#mandate">What We Do</a></li>
-        <li><a href="/#process">How We Work</a></li>
-        <li><a href="/#founders">Founders</a></li>
-        <li><a href="/#industries">Industries</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-      <div class="nav__controls">
-        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <a href="/contact.html" class="nav__cta desktop-only">Schedule a Call</a>
-        <button class="nav__mobile-toggle" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="nav__mobile-menu" role="dialog" aria-label="Mobile navigation">
-    <a href="/#mandate">What We Do</a>
-    <a href="/#process">How We Work</a>
-    <a href="/#founders">Founders</a>
-    <a href="/#industries">Industries</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/contact.html" class="btn btn--primary" style="margin-top:0.5rem;">Schedule a Call</a>
-  </div>
-</nav>
 
-<!-- HERO -->
-<main>
-<section class="hero">
-  <div class="container">
-    <div class="hero__eyebrow">Technology Advisory</div>
-    <h1 class="hero__headline">
-      We advise founders.<br>
-      <span>We build what wins.</span>
-    </h1>
-    <p class="hero__body">
-      Two CEOs. 30+ years each. We help founders and PE firms understand exactly where software can grow their business, scale their operations, and maximize enterprise value — then we build it.
-    </p>
-    <div class="hero__actions">
-      <a href="/contact.html" class="btn btn--primary">Schedule a Discovery Call</a>
-      <a href="/#process" class="btn btn--ghost">How We Work</a>
+      <!-- Stats row at bottom of right col -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">30<span>+</span></div>
+          <div class="stat-label">Years each</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">$2<span>B+</span></div>
+          <div class="stat-label">DTC sales driven</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">62<span>%</span></div>
+          <div class="stat-label">Client spend reduction</div>
+        </div>
+      </div>
     </div>
-    <div class="hero__stats">
-      <div class="hero__stat">
-        <span class="hero__stat-num">30+</span>
-        <span class="hero__stat-label">Years Each</span>
-      </div>
-      <div class="hero__stat-div"></div>
-      <div class="hero__stat">
-        <span class="hero__stat-num">15+</span>
-        <span class="hero__stat-label">Industries Served</span>
-      </div>
-      <div class="hero__stat-div"></div>
-      <div class="hero__stat">
-        <span class="hero__stat-num">2006</span>
-        <span class="hero__stat-label">Founded</span>
-      </div>
-      <div class="hero__stat-div"></div>
-      <div class="hero__stat">
-        <span class="hero__stat-num">$2B+</span>
-        <span class="hero__stat-label">Client Revenue Enabled</span>
-      </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-item">Diagnostic <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Architecture Advisory <span class="marquee-dot"></span></div>
+      <div class="marquee-item">POC Development <span class="marquee-dot"></span></div>
+      <div class="marquee-item">AI Integration <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Platform Exit Strategy <span class="marquee-dot"></span></div>
+      <div class="marquee-item">EBITDA Growth <span class="marquee-dot"></span></div>
+      <div class="marquee-item">PE Advisory <span class="marquee-dot"></span></div>
+      <div class="marquee-item">MCP-Native Architecture <span class="marquee-dot"></span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="marquee-item">Diagnostic <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Architecture Advisory <span class="marquee-dot"></span></div>
+      <div class="marquee-item">POC Development <span class="marquee-dot"></span></div>
+      <div class="marquee-item">AI Integration <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Platform Exit Strategy <span class="marquee-dot"></span></div>
+      <div class="marquee-item">EBITDA Growth <span class="marquee-dot"></span></div>
+      <div class="marquee-item">PE Advisory <span class="marquee-dot"></span></div>
+      <div class="marquee-item">MCP-Native Architecture <span class="marquee-dot"></span></div>
     </div>
   </div>
-</section>
 
-<!-- MANDATE -->
-<section class="mandate" id="mandate">
-  <div class="container">
-    <div class="mandate__grid">
-      <div class="mandate__left">
-        <p class="section-eyebrow">Our Mandate</p>
-        <h2 class="section-title">We are not developers who learned business later.<br>We are business advisors who understand the full software development lifecycle.</h2>
-        <p class="section-body">
-          Most technology engagements fail because the people building the software have never run a business — and the people running the business don't understand how software gets built, maintained, or scaled. We close that gap. We optimize for outcomes: growth, margin, scale, and exit.
+  <!-- MANDATE -->
+  <section class="section" id="mandate">
+    <div class="section-eyebrow">Our Mandate</div>
+    <div class="mandate-grid">
+      <div>
+        <h2 class="mandate-heading">
+          Not a slide deck.<br>
+          <em>A decision.</em>
+        </h2>
+      </div>
+      <div class="mandate-right">
+        <p class="mandate-body">
+          Most technology engagements fail because the people building the software have never run a business — and the people running the business don't understand how software gets built, maintained, or scaled. <strong>We close that gap.</strong>
         </p>
-        <p class="section-body" style="margin-top:1.25rem;">
+        <p class="mandate-body">
           AI gave every organization access to a very fast code writer. We give you everything else: the judgment, the architecture, the business understanding, and the financial lens to know what to build, what not to build, and what it should return.
         </p>
-        <a href="/contact.html" class="btn btn--primary" style="margin-top:2rem;">Start with a Diagnostic</a>
       </div>
-      <div class="mandate__pillars">
-        <div class="pillar">
-          <div class="pillar__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <div class="pillar__title">People</div>
-            <p class="pillar__body">We assess your team alongside your technology. We identify where human time is being consumed by work that no longer requires a person — and where to supplement or replace capacity.</p>
-          </div>
+    </div>
+
+    <!-- Pillars -->
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-num">01 — People</div>
+        <div class="pillar-title">The right team for the actual problem</div>
+        <p class="pillar-body">AI tools don't replace judgment, architecture experience, or the understanding of what a business actually needs to scale. We assess your team, identify gaps, and either supplement or redirect before a line of production code is written.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02 — Processes</div>
+        <div class="pillar-title">Engineering that fits how your business operates</div>
+        <p class="pillar-body">Software that ignores your operational reality fails in production, not in demos. We map your workflows first, then design systems that support them — not the other way around.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03 — Platforms</div>
+        <div class="pillar-title">Build vs. buy, with the math to back it</div>
+        <p class="pillar-body">SaaS licensing fees were calculated under conditions that no longer apply. The cost to build custom software has collapsed. We help you understand when to build, when to buy, and when to exit a vendor dependency entirely.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <div class="process-section" id="process">
+    <div class="process-inner">
+      <div class="section-eyebrow">How We Work</div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <div class="step-tag">Free / Flat-Fee</div>
+          <div class="step-title">Diagnostic</div>
+          <p class="step-body">We assess your current systems, team, vendors, and roadmap. We identify where technology is helping your business and where it is quietly limiting it. You walk away with a prioritized view of what to address first — regardless of whether you engage us further.</p>
         </div>
-        <div class="pillar">
-          <div class="pillar__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div>
-            <div class="pillar__title">Processes</div>
-            <p class="pillar__body">Most business processes are habits — built around software constraints that no longer exist. We map what you actually do, then redesign around what's now possible.</p>
-          </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <div class="step-tag">Time-boxed</div>
+          <div class="step-title">Proof of Concept</div>
+          <p class="step-body">We scope and build a focused POC against the highest-priority opportunity from the diagnostic. Purpose-built. AI-accelerated. Delivered with a production path already defined. No open-ended retainers.</p>
         </div>
-        <div class="pillar">
-          <div class="pillar__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <div>
-            <div class="pillar__title">Platforms</div>
-            <p class="pillar__body">SaaS licensing fees were calculated under conditions that no longer apply. The cost to build custom software has collapsed — but most businesses are still paying subscription fees for platforms they could own outright. We help you understand when to build, when to buy, and when to exit a vendor dependency entirely.</p>
-          </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <div class="step-tag">Stature Software</div>
+          <div class="step-title">Production</div>
+          <p class="step-body">Recommendations don't stop at a slide deck. Our build arm — Stature Software — executes the full production build. The same judgment that diagnosed the problem directs the solution. MCP-native architecture from day one.</p>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- PROCESS -->
-<section class="process" id="process">
-  <div class="container--default">
-    <p class="section-eyebrow">How We Work</p>
-    <h2 class="section-title">Diagnostic. Scope. Build.</h2>
-    <p class="section-body">Every engagement begins the same way — we look at everything before we recommend anything. Sometimes the answer is don't build. We'll tell you either way.</p>
-    <div class="process__steps">
-      <div class="step">
-        <div class="step__num">Phase 01</div>
-        <div class="step__title">Diagnostic</div>
-        <p class="step__body">We come in as independent advisors and assess your people, processes, platforms, team, and financials. We map where the leverage is — where software can move the needle on margin, scale, or exit value. Delivered as a written plan with ROI scenarios, costs, and timeline. Typically free or flat-fee.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">Phase 02</div>
-        <div class="step__title">Proof of Concept</div>
-        <p class="step__body">Once we know what to build, we move fast. We design and build a working proof of concept — enough to validate the idea, demonstrate the value, and align stakeholders before committing to production. Speed over polish at this stage.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">Phase 03</div>
-        <div class="step__title">Production Build</div>
-        <p class="step__body">When the concept is proven, we build it properly. Enterprise-grade architecture, security, scalability, and AI-native from the ground up. Every system is built with MCP (Model Context Protocol) at the foundation — ready for the next generation of AI tooling without retrofitting.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHO WE SERVE — dark band -->
-<section class="dark-band" id="who-we-serve">
-  <div class="container">
-    <div class="dark-band__grid">
-      <div>
-        <p class="section-eyebrow">Who We Serve</p>
-        <h2 class="section-title" style="color:#fff;">Founders building toward exit. PE firms protecting their investment.</h2>
-        <p class="dark-band__body">We enter at the founder level before a transaction, and at the PE level after one. The conversation is always the same: where is the technology leverage, and how do we realize it?</p>
-        <a href="/contact.html" class="btn btn--primary">Let's Talk</a>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:1.5rem;">
-        <div class="dark-band__card">
-          <div class="dark-band__card-label">For Founders</div>
-          <div class="dark-band__card-title">Grow. Scale. Exit Ready.</div>
-          <p class="dark-band__card-body">You have a business that works. We find where software can make it work at scale, reduce cost, increase margin, and make it more valuable to a buyer.</p>
-        </div>
-        <div class="dark-band__card">
-          <div class="dark-band__card-label">For PE Firms</div>
-          <div class="dark-band__card-title">Protect and Expand Portfolio Value.</div>
-          <p class="dark-band__card-body">Post-acquisition, we come in as independent advisors to assess technology risk and opportunity in your portfolio companies — and execute the build.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDERS -->
-<section class="founders" id="founders">
-  <div class="container">
-    <p class="section-eyebrow">The Founders</p>
-    <h2 class="section-title">Two industries. One conclusion.</h2>
-    <p class="section-body">Greg spent a decade scaling a platform that drove over $2 billion in direct-to-consumer sales. Joe spent years running enterprise software that cut Fortune 500 client spend by 62%. Different industries. Both watched the same thing happen from opposite sides: the cost to build software collapsed while SaaS licensing fees kept climbing — and most organizations hadn't noticed yet. That's why they're back.</p>
-    <div class="founders__grid">
+  <!-- FOUNDERS -->
+  <section class="section" id="founders">
+    <div class="section-eyebrow">The Founders</div>
+    <h2 class="mandate-heading" style="margin-bottom:0;">Two industries.<br><em>One conclusion.</em></h2>
+    <div class="founders-grid">
       <div class="founder-card">
-        <div class="founder-card__name">Joe Patalano</div>
-        <div class="founder-card__title">Co-Founder &amp; Managing Partner</div>
-        <p class="founder-card__bio">
-          Joe co-founded Stature Software in 2006 and has spent 30+ years building and operating enterprise software organizations. As CEO of Event Cadence — a platform Stature originally built, later acquired — he ran enterprise software at scale for Fortune 500 pharmaceutical and life sciences companies, cutting client technology spend by 62%.
+        <div class="founder-name">Joe Patalano</div>
+        <div class="founder-role">Co-Founder, Managing Partner</div>
+        <p class="founder-bio">
+          Joe co-founded Stature Software in 2006 and has spent 30+ years building and operating enterprise software organizations. As CEO of Event Cadence — a platform serving Fortune 500 pharmaceutical and life sciences companies — he cut client technology spend by 62%. He approaches every engagement as an operator first.
         </p>
-        <p class="founder-card__bio">
-          His experience spans both sides of the operator/builder divide: he has been the person responsible for delivery, and the CEO living with what was delivered. That perspective shapes every engagement.
-        </p>
-        <div class="founder-card__credentials">
-          <span class="founder-card__cred">30+ years in enterprise software architecture and operations</span>
-          <span class="founder-card__cred">CEO, Event Cadence (Fortune 500 pharma and life sciences platform)</span>
-          <span class="founder-card__cred">Multiple M&amp;A transactions across buyer and seller positions</span>
-          <span class="founder-card__cred">15+ industries including defense, healthcare, pharma, and logistics</span>
-        </div>
       </div>
       <div class="founder-card">
-        <div class="founder-card__name">Gregory Silvano</div>
-        <div class="founder-card__title">Co-Founder &amp; Managing Partner</div>
-        <p class="founder-card__bio">
-          Greg co-founded Stature Software in 2006, then built Buyist — an eCommerce platform and DTC infrastructure company responsible for over $2 billion in direct-to-consumer sales and 43 of the top 50 US television campaigns. He returns to Stature with deep expertise in consumer data, growth infrastructure, and what makes a business scale.
+        <div class="founder-name">Gregory Silvano</div>
+        <div class="founder-role">Co-Founder, Managing Partner</div>
+        <p class="founder-bio">
+          Greg co-founded Stature in 2006, then built Buyist — a DTC infrastructure platform responsible for over $2 billion in direct-to-consumer sales and 43 of the top 50 US television campaigns. He returns with deep expertise in consumer data, growth infrastructure, and what makes a business actually scale.
         </p>
-        <p class="founder-card__bio">
-          Greg's time at Buyist gave him a frontrow view of how the economics of building software changed — and how most organizations haven't caught up to that reality.
-        </p>
-        <div class="founder-card__credentials">
-          <span class="founder-card__cred">30+ years in software, data, and consumer technology</span>
-          <span class="founder-card__cred">Founder, Buyist — $2B+ in DTC sales, 43 of top 50 US TV campaigns</span>
-          <span class="founder-card__cred">Expert in growth infrastructure, data systems, and consumer intelligence</span>
-          <span class="founder-card__cred">Multiple M&amp;A transactions across buyer and seller positions</span>
-        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SOFTWARE ARM -->
-<section class="software-arm" id="software-arm">
-  <div class="container">
-    <div class="software-arm__inner">
-      <div>
-        <p class="section-eyebrow">Stature Software</p>
-        <h2 class="section-title">The build arm. When the diagnostic says build, we build.</h2>
-        <p class="section-body">Our advisory recommendations don't stop at a slide deck. Stature Software — our enterprise development practice — executes the build. The same judgment that diagnosed the problem directs the solution.</p>
-        <div class="software-arm__features">
-          <div class="software-arm__feat">
-            <div class="software-arm__feat-dot"></div>
-            <p class="software-arm__feat-text"><strong>AI-native from day one.</strong> Every system is built with MCP (Model Context Protocol) at the architecture level — not retrofitted. Your team can connect to their own data and get answers without a developer in the room.</p>
-          </div>
-          <div class="software-arm__feat">
-            <div class="software-arm__feat-dot"></div>
-            <p class="software-arm__feat-text"><strong>Enterprise-grade backend, fast front end.</strong> We architect the systems that hold up. We move fast on the interfaces that prove the concept. We hand-craft what gets commercialized.</p>
-          </div>
-          <div class="software-arm__feat">
-            <div class="software-arm__feat-dot"></div>
-            <p class="software-arm__feat-text"><strong>Environments, deployments, code management.</strong> We handle the full operational picture — CI/CD, hosting, monitoring, cost management — so your team stays focused on the business.</p>
-          </div>
-          <div class="software-arm__feat">
-            <div class="software-arm__feat-dot"></div>
-            <p class="software-arm__feat-text"><strong>Team augmentation.</strong> We can bring the strategy, the team, the execution, or all three. We assess your existing team and fill gaps with senior expertise.</p>
-          </div>
-        </div>
-        <a href="https://www.staturesoftware.com" class="btn btn--ghost" style="margin-top:2rem;" target="_blank" rel="noopener">Visit Stature Software →</a>
-      </div>
-      <div class="software-arm__visual">
-        <div class="software-arm__terminal">
-          <div class="terminal__bar">
-            <span class="terminal__dot"></span>
-            <span class="terminal__dot"></span>
-            <span class="terminal__dot"></span>
-          </div>
-          <div class="terminal__line"><span class="dim">// stature advisory output</span></div>
-          <div class="terminal__line">&nbsp;</div>
-          <div class="terminal__line"><span style="color:#3fa8b0;">diagnostic</span><span class="lit">.run(client)</span></div>
-          <div class="terminal__line"><span class="dim">  → people: 3 automation candidates</span></div>
-          <div class="terminal__line"><span class="dim">  → processes: 2 reengineering targets</span></div>
-          <div class="terminal__line"><span class="dim">  → platforms: $420K annual reclaimable</span></div>
-          <div class="terminal__line">&nbsp;</div>
-          <div class="terminal__line"><span style="color:#3fa8b0;">scope</span><span class="lit">.define()</span></div>
-          <div class="terminal__line"><span class="dim">  → POC: 4 weeks</span></div>
-          <div class="terminal__line"><span class="dim">  → production: 12 weeks</span></div>
-          <div class="terminal__line"><span class="dim">  → ROI: 14 months</span></div>
-          <div class="terminal__line">&nbsp;</div>
-          <div class="terminal__line"><span style="color:#3fa8b0;">build</span><span class="lit">.execute()</span> <span class="dim">▌</span></div>
-        </div>
-      </div>
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="cta-band-inner">
+      <h2 class="cta-heading">Start with the diagnostic.</h2>
+      <p class="cta-sub">Free or flat-fee. No open-ended retainer. You'll know more about your technology in 30 days than you do today.</p>
+      <a href="contact.html" class="cta-btn">
+        Book a Diagnostic
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
-</section>
 
-<!-- INDUSTRIES -->
-<section class="industries" id="industries">
-  <div class="container">
-    <p class="section-eyebrow">Industries</p>
-    <h2 class="section-title">15+ verticals. One standard.</h2>
-    <p class="section-body">We have delivered production systems across a wide range of industries. Breadth is not the point — pattern recognition is. We recognize the problems that repeat regardless of sector.</p>
-    <div class="industries__grid">
-      <div class="industry-tag">Healthcare</div>
-      <div class="industry-tag">Finance</div>
-      <div class="industry-tag">Defense &amp; Security</div>
-      <div class="industry-tag">Logistics</div>
-      <div class="industry-tag">Retail &amp; E-commerce</div>
-      <div class="industry-tag">Construction</div>
-      <div class="industry-tag">Transportation &amp; Fleet</div>
-      <div class="industry-tag">Travel &amp; Events</div>
-      <div class="industry-tag">Direct-to-Consumer</div>
-      <div class="industry-tag">Pharma &amp; Biotech</div>
-      <div class="industry-tag">Adtech &amp; Martech</div>
-      <div class="industry-tag">Education &amp; EdTech</div>
-      <div class="industry-tag">Medical Devices</div>
-      <div class="industry-tag">Franchise Operations</div>
-      <div class="industry-tag">Direct Response</div>
-      <div class="industry-tag">SaaS &amp; Platform</div>
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <svg width="190" height="24" viewBox="0 0 190 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Stature Advisors" style="margin-bottom:0.75rem;display:block;">
+        <text x="0" y="17" font-family="Cabinet Grotesk,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="500" letter-spacing="3.5" fill="#3fa8b0">STATURE</text>
+        <rect x="79" y="2" width="1.5" height="19" fill="#3fa8b0"/>
+        <text x="87" y="17" font-family="Cabinet Grotesk,Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="500" letter-spacing="3.5" fill="#3fa8b0">ADVISORS</text>
+      </svg>
+      <div class="footer-legal">&copy; 2026 Stature Advisors LLC. All rights reserved.</div>
     </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="cta-final">
-  <div class="container--narrow" style="text-align:center;">
-    <p class="section-eyebrow" style="justify-content:center;">Get Started</p>
-    <h2 class="cta-final__headline">Start with a diagnostic.</h2>
-    <p class="cta-final__sub">We come in, look at everything, and tell you where the leverage is — before you commit to a single line of code. Typically free or flat-fee.</p>
-    <div class="cta-final__actions">
-      <a href="/contact.html" class="btn btn--primary">Schedule a Discovery Call</a>
-      <a href="https://www.staturesoftware.com" class="btn btn--ghost" target="_blank" rel="noopener">Explore Stature Software</a>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="https://www.staturesoftware.com" target="_blank" rel="noopener">Stature Software</a>
+      <a href="contact.html">Contact</a>
     </div>
-  </div>
-</section>
-</main>
-
-<!-- FOOTER -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <svg width="200" height="26" viewBox="0 0 200 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Stature Advisors" style="margin-bottom:1rem;">
-          <text x="0" y="19" font-family="Cabinet Grotesk,Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="500" letter-spacing="3.5" fill="#3fa8b0">STATURE</text>
-          <rect x="84" y="2" width="1.5" height="21" fill="#3fa8b0"/>
-          <text x="92" y="19" font-family="Cabinet Grotesk,Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="500" letter-spacing="3.5" fill="#3fa8b0">ADVISORS</text>
-        </svg>
-        <p class="footer__brand-desc">Technology advisory for founders and private equity firms. We help organizations grow, scale, increase EBITDA, and exit — through strategic and deliberate use of software.</p>
-      </div>
-      <div>
-        <div class="footer__col-label">Navigation</div>
-        <ul class="footer__links" role="list">
-          <li><a href="/#mandate">What We Do</a></li>
-          <li><a href="/#process">How We Work</a></li>
-          <li><a href="/#founders">Founders</a></li>
-          <li><a href="/#industries">Industries</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-label">Legal</div>
-        <ul class="footer__links" role="list">
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-          <li><a href="/terms.html">Terms of Service</a></li>
-          <li><a href="/cookies.html">Cookie Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer__legal">&copy; 2026 Stature Advisors LLC. All rights reserved. &nbsp;|&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;|&nbsp; <a href="/terms.html">Terms</a></div>
-      <div class="footer__arm">Build arm: <a href="https://www.staturesoftware.com" target="_blank" rel="noopener">Stature Software</a></div>
-    </div>
-  </div>
-</footer>
-
-<!-- COOKIE BANNER -->
-<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie notice" hidden>
-  <p class="cookie-banner__text">We use cookies to improve your experience. See our <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy.html">Privacy Policy</a>.</p>
-  <div class="cookie-banner__actions">
-    <button class="cookie-banner__btn cookie-banner__btn--decline" id="cookie-decline">Decline</button>
-    <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookie-accept">Accept</button>
-  </div>
-</div>
+  </footer>
 
 </body>
 </html>
