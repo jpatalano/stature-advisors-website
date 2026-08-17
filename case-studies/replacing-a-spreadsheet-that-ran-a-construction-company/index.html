@@ -144,9 +144,24 @@
 
     <p><strong>Work in progress and backlog:</strong> monthly burndown with reconciliation crosses, contract value still to build at each year end, and cumulative percent complete curves for the eight largest jobs. The backlog burndown separates ongoing from firm backlog, and a cross marks any month where the individual job rows sum higher than the workbook total line. Twenty-four of 25 months tie exactly, and the one that doesn't is flagged rather than hidden.</p>
 
+    <figure class="article-figure">
+      <img src="../../img/case-studies/wip-backlog.jpg" alt="Work in progress and backlog tab showing monthly backlog burndown from January 2025 to January 2027, contract value still to build at each year end, and cumulative percent complete curves for the eight largest jobs" loading="lazy">
+      <figcaption>The Work in Progress and Backlog tab. The gold cross over August 2026 flags the one month where the individual job rows sum higher than the workbook's own total line.</figcaption>
+    </figure>
+
     <p><strong>Labor:</strong> weekly cost by person across 23 weeks, and budget against scheduled work by person and job with the unscheduled remainder in gold. That's exactly the gap a project manager needs to see before it becomes a surprise.</p>
 
+    <figure class="article-figure">
+      <img src="../../img/case-studies/labor.jpg" alt="Labor tab showing weekly labor cost by person across 23 weeks from July 2026 to January 2027, and a chart comparing scheduled work against budget by person and job with the unscheduled remainder shown in gold" loading="lazy">
+      <figcaption>The Labor tab. The gold segments in the lower chart are budget dollars with no scheduled week behind them yet, exactly the gap a project manager needs to catch early.</figcaption>
+    </figure>
+
     <p><strong>Portfolio shape:</strong> contract value and gross profit by pipeline status, gross margin plotted against job size on a log scale, and a concentration curve with running total. The margin-versus-job-size chart reveals a pattern that's difficult to see in a standard table: smaller jobs tend to produce wider margins, while larger jobs generally carry thinner margins. The concentration chart ranks jobs by contract value and shows how quickly total value accumulates. The top four jobs account for 77.63% of total contract value, making concentration risk immediately visible instead of requiring manual spreadsheet analysis.</p>
+
+    <figure class="article-figure">
+      <img src="../../img/case-studies/portfolio-shape.jpg" alt="Portfolio shape tab showing contract value and gross profit by pipeline status, gross margin plotted against job size on a log scale, and a concentration of contract value chart with a running total line" loading="lazy">
+      <figcaption>The Portfolio Shape tab. The concentration chart at the bottom shows the top four jobs account for 77.63% of total contract value, a risk that's invisible in a flat spreadsheet.</figcaption>
+    </figure>
 
     <h3>3. Data entry that replaces the workbook, not just mirrors it</h3>
     <p>Roughly a third of the model is not in Procore and never will be: percent complete judgments, overhead by general ledger account by month, cash flow phasing, weekly labor allocation, and the partner split. Those need a first-class entry experience or people will keep opening Excel.</p>
@@ -155,6 +170,11 @@
 
     <h3>4. The Procore integration</h3>
     <p>A read-only client against the Procore REST API mirrors projects, budget views, budget line items, cost codes, work breakdown structure segments, direct costs, companies, and identities into local tables, with every request and raw response logged for replay and debugging. The mirror currently holds 633 budget line items and 2,242 cost codes, and every mirror table is browsable in the app with search, column filters, and sorting, so a disputed number can be traced back to the exact API payload it came from.</p>
+
+    <figure class="article-figure">
+      <img src="../../img/case-studies/budget-line-items.jpg" alt="Budget Line Items table showing the raw Procore mirror data grid with 633 rows, including cost codes, cost types, original budget, revised budget, and committed costs, searchable and paginated" loading="lazy">
+      <figcaption>The raw Procore mirror, browsable in the app. Every one of the 633 budget line items is searchable and filterable, so a disputed number can be traced back to the exact API payload it came from.</figcaption>
+    </figure>
     <p>The integration also surfaced two things worth knowing. Jobs do not join to Procore on job number: three jobs are numbered differently in Procore than in the workbook, and one workbook job number is reused. The join is on name instead, with a manual link editor for the exceptions.</p>
 
     <h3>5. An AI layer that answers questions directly from the data</h3>
