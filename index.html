@@ -626,6 +626,71 @@
       color: var(--fg-muted);
     }
 
+    /* ── TEAM ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5px;
+      background: var(--fg-dim);
+      border: 1px solid var(--fg-dim);
+      margin-top: 4rem;
+      max-width: 640px;
+    }
+
+    .team-card {
+      background: var(--bg);
+      padding: 3.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--teal), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .team-card:hover::after { transform: scaleX(1); }
+
+    .team-photo {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1.5rem;
+      border: 1.5px solid rgba(63,168,176,0.35);
+    }
+
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--fg);
+      margin-bottom: 0.3rem;
+    }
+
+    .team-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 2rem;
+      font-family: var(--font-display);
+    }
+
+    .team-bio {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--fg-muted);
+    }
+
     /* ── CTA BAND ── */
     .cta-band {
       padding: 8rem 3rem;
@@ -776,6 +841,7 @@
       .process-step { border-right: none; border-bottom: 1px solid var(--fg-dim); }
       .process-step:last-child { border-bottom: none; }
       .founders-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
       .section { padding: 5rem 1.5rem; }
       .process-section { padding: 5rem 1.5rem; }
       .cta-band { padding: 5rem 1.5rem; }
@@ -891,6 +957,7 @@
       <a href="#mandate">About</a>
       <a href="#process">How We Work</a>
       <a href="#founders">Founders</a>
+      <a href="#team">Team</a>
       <a href="contact.html" class="nav-cta">Start a Diagnostic</a>
     </div>
   </nav>
@@ -1051,6 +1118,22 @@
         <div class="founder-role">Co-Founder, Managing Partner</div>
         <p class="founder-bio">
           Greg co-founded Stature in 2006, then built Buyist, a DTC infrastructure platform responsible for over $2 billion in direct-to-consumer sales and 43 of the top 50 US television campaigns. He returns with deep expertise in consumer data, growth infrastructure, and what makes a business actually scale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" id="team">
+    <div class="section-eyebrow"><span class="material-symbols-outlined">groups</span>The Team</div>
+    <h2 class="mandate-heading" style="margin-bottom:0;">Behind every<br><em>engagement.</em></h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="img/cameron-patalano.jpg" alt="Cameron Patalano" class="team-photo">
+        <div class="team-name">Cameron Patalano</div>
+        <div class="team-role">AI & Automation Advisor</div>
+        <p class="team-bio">
+          Cameron is an AI & Automation Advisor and former Business Intelligence Analyst who builds custom AI tools, automation infrastructure, and full-stack applications for small and mid-size businesses. His work includes a profit projection platform that saves a commercial construction CEO 8–10 hours each month on forecasting, as well as an AI-driven video-to-content pipeline that transforms recorded interviews into blogs, social posts, and podcast clips.
         </p>
       </div>
     </div>
