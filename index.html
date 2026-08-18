@@ -476,11 +476,61 @@
       margin: 0 auto;
     }
 
+    .process-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--fg);
+      max-width: 24ch;
+      margin-top: 2rem;
+    }
+
+    /* READINESS */
+    .readiness-section {
+      padding: 7rem 3rem;
+      border-top: 1px solid var(--fg-dim);
+    }
+
+    .readiness-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .readiness-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.2vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      color: var(--fg);
+      margin-bottom: 2.5rem;
+    }
+
+    .readiness-body {
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: var(--fg-muted);
+      margin-bottom: 1.5rem;
+      max-width: 62ch;
+    }
+
+    .readiness-body strong { color: var(--fg); font-weight: 500; }
+
+    .readiness-close {
+      border-left: 2px solid var(--teal);
+      padding-left: 1.75rem;
+      margin-top: 2.75rem;
+    }
+
+    .readiness-close .readiness-body:last-child { margin-bottom: 0; }
+
     .process-steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      margin-top: 4rem;
+      margin-top: 3rem;
       border: 1px solid var(--fg-dim);
     }
 
@@ -505,6 +555,7 @@
     .process-step:nth-child(1) { transition-delay: 0s; }
     .process-step:nth-child(2) { transition-delay: 0.15s; }
     .process-step:nth-child(3) { transition-delay: 0.3s; }
+    .process-step:nth-child(4) { transition-delay: 0.45s; }
 
     .step-num {
       transition: color 0.5s ease;
@@ -957,6 +1008,7 @@
       .mandate-grid { grid-template-columns: 1fr; gap: 3rem; }
       .pillars-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; }
+      .readiness-section { padding: 5rem 1.5rem; }
       .process-step { border-right: none; border-bottom: 1px solid var(--fg-dim); }
       .process-step:last-child { border-bottom: none; }
       .founders-grid { grid-template-columns: 1fr; }
@@ -1019,7 +1071,7 @@
 
     .leverage-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5px;
       background: var(--fg-dim);
       border: 1px solid var(--fg-dim);
@@ -1074,6 +1126,7 @@
     </a>
     <div class="nav-links">
       <a href="#mandate">About</a>
+      <a href="#deliver">What We Deliver</a>
       <a href="#process">How We Work</a>
       <a href="#founders">Founders</a>
       <a href="#team">Team</a>
@@ -1090,21 +1143,20 @@
     <div class="hero-left">
       <div class="hero-eyebrow"><span class="material-symbols-outlined">insights</span>Technology Advisory</div>
       <h1 class="hero-heading">
-        The code<br>
-        is the<br>
-        <em>easy part.</em><br>
-        We've always<br>
-        known that.
+        Scale<br>
+        without<br>
+        adding<br>
+        <em>headcount.</em>
       </h1>
     </div>
 
     <!-- Right: Offset content -->
     <div class="hero-right">
       <p class="hero-statement">
-        We are business advisors who understand the full software development lifecycle.
+        Most companies automate chaos. We rebuild the process, then automate it.
       </p>
       <p class="hero-sub">
-        Two CEOs. 30+ years each. We advise founders and PE firms on how to use technology to grow, scale, increase EBITDA, and exit.
+        We advise founders and PE firms on where software and automation actually pay off, then build the systems that make it permanent.
       </p>
       <a href="contact.html" class="hero-cta">
         Start a Diagnostic
@@ -1133,22 +1185,24 @@
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-track">
       <div class="marquee-item">Diagnostic <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Architecture Advisory <span class="marquee-dot"></span></div>
-      <div class="marquee-item">POC Development <span class="marquee-dot"></span></div>
-      <div class="marquee-item">AI Integration <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Platform Exit Strategy <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Deep Discovery <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Process Rebuild <span class="marquee-dot"></span></div>
+      <div class="marquee-item">AI Agents <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Proposals and Bidding <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Marketing and Content <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Sales and Revenue <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Operations <span class="marquee-dot"></span></div>
       <div class="marquee-item">EBITDA Growth <span class="marquee-dot"></span></div>
-      <div class="marquee-item">PE Advisory <span class="marquee-dot"></span></div>
-      <div class="marquee-item">MCP-Native Architecture <span class="marquee-dot"></span></div>
       <!-- duplicate for seamless loop -->
       <div class="marquee-item">Diagnostic <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Architecture Advisory <span class="marquee-dot"></span></div>
-      <div class="marquee-item">POC Development <span class="marquee-dot"></span></div>
-      <div class="marquee-item">AI Integration <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Platform Exit Strategy <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Deep Discovery <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Process Rebuild <span class="marquee-dot"></span></div>
+      <div class="marquee-item">AI Agents <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Proposals and Bidding <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Marketing and Content <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Sales and Revenue <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Operations <span class="marquee-dot"></span></div>
       <div class="marquee-item">EBITDA Growth <span class="marquee-dot"></span></div>
-      <div class="marquee-item">PE Advisory <span class="marquee-dot"></span></div>
-      <div class="marquee-item">MCP-Native Architecture <span class="marquee-dot"></span></div>
     </div>
   </div>
 
@@ -1158,16 +1212,22 @@
     <div class="mandate-grid">
       <div>
         <h2 class="mandate-heading">
-          Not a slide deck.<br>
-          <em>A decision.</em>
+          We are business<br>
+          advisors who know<br>
+          where software<br>
+          and automation<br>
+          <em>actually pay off.</em>
         </h2>
       </div>
       <div class="mandate-right">
         <p class="mandate-body">
-          Most technology engagements fail because the people building the software have never run a business, and the people running the business don't understand how software gets built, maintained, or scaled. <strong>We close that gap.</strong>
+          Most technology engagements fail because the people building do not understand the business, and the people running the business do not understand what they are buying. <strong>Software gets sold as the answer long before anyone has defined the question.</strong>
         </p>
         <p class="mandate-body">
-          AI gave every organization access to a very fast code writer. We give you everything else: the judgment, the architecture, the business understanding, and the financial lens to know what to build, what not to build, and what it should return.
+          We come in, find where technology and AI create real leverage, and tell you honestly whether your organization can execute on it. Then we build the system that makes it permanent.
+        </p>
+        <p class="mandate-body">
+          Every engagement is led by someone who has operated a business, not just advised one.
         </p>
       </div>
     </div>
@@ -1196,24 +1256,31 @@
   <div class="process-section" id="process">
     <div class="process-inner">
       <div class="section-eyebrow"><span class="material-symbols-outlined">route</span>How We Work</div>
+      <h2 class="process-heading">Four steps. You can stop after any of them.</h2>
       <div class="process-steps">
         <div class="process-step">
           <div class="step-num">01</div>
-          <div class="step-tag">Free / Flat-Fee</div>
-          <div class="step-title">Diagnostic</div>
-          <p class="step-body">We assess your current systems, team, vendors, and roadmap. We identify where technology is helping your business and where it is quietly limiting it. You walk away with a prioritized view of what to address first, regardless of whether you engage us further.</p>
+          <div class="step-tag">No cost</div>
+          <div class="step-title">The Diagnostic</div>
+          <p class="step-body">Ninety minutes, remote. We find where technology and AI create the most leverage in your business. You leave with a written read whether or not we work together.</p>
         </div>
         <div class="process-step">
           <div class="step-num">02</div>
-          <div class="step-tag">Time-boxed</div>
-          <div class="step-title">Proof of Concept</div>
-          <p class="step-body">We scope and build a focused POC against the highest-priority opportunity from the diagnostic. Purpose-built. AI-accelerated. Delivered with a production path already defined. No open-ended retainers.</p>
+          <div class="step-tag">Onsite or remote</div>
+          <div class="step-title">Deep Discovery</div>
+          <p class="step-body">Not always necessary. When it is, what we need is not a location, it is dedicated focused time from your leadership team. We assess your systems, your process, and the people expected to execute, then come back after the first round of changes to see how the organization actually responded.</p>
         </div>
         <div class="process-step">
           <div class="step-num">03</div>
           <div class="step-tag">Stature Software</div>
-          <div class="step-title">Production</div>
-          <p class="step-body">Recommendations don't stop at a slide deck. Our build arm, Stature Software, executes the full production build. The same judgment that diagnosed the problem directs the solution. MCP-native architecture from day one.</p>
+          <div class="step-title">The Build</div>
+          <p class="step-body">A working prototype in weeks, not a deck in months. Seeing it real is what exposes the gaps no requirements document ever catches. Then we build the production system on top of what we learned.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <div class="step-tag">Ongoing</div>
+          <div class="step-title">We Support, You Own</div>
+          <p class="step-body">The code, the data, and the process are yours. Your team operates it without us in the loop. We stay involved because you want us there, not because you cannot function otherwise.</p>
         </div>
       </div>
     </div>
@@ -1268,53 +1335,43 @@
     </div>
   </section>
 
-  <!-- WHERE WE WORK -->
-  <div class="leverage-section" id="leverage">
+  <!-- WHAT WE DELIVER -->
+  <div class="leverage-section" id="deliver">
     <div class="leverage-inner">
-      <div class="section-eyebrow">Where We Work</div>
+      <div class="section-eyebrow"><span class="material-symbols-outlined">deployed_code</span>What We Deliver</div>
       <div class="leverage-intro">
         <h2 class="leverage-heading">
-          AI creates leverage<br>
-          across the whole<br>
-          business. <em>Not just<br>
-          the engineering org.</em>
+          We build<br>
+          the system.<br>
+          <em>Everything else<br>
+          rides inside it.</em>
         </h2>
         <p class="leverage-body">
-          We help founders identify where AI moves the needle first, then we build it. Sometimes that is your software. Often it is your marketing automation, your proposal and RFP process, your sales workflow, or your internal operations. <strong>We start where the return is clearest.</strong>
+          Process fixes without a system to enforce them decay in a quarter, because people revert. AI agents without a system to live in are toys nobody adopts.
           <br><br>
-          We look for small and mid-size businesses that have not yet taken full advantage of AI, and where the right technology investment will genuinely move the needle on growth, margin, or exit value.
+          <strong>We build the operating system for how your business actually works</strong>, then the automation, the agents, and the reporting arrive inside something your team already uses every day.
         </p>
       </div>
       <div class="leverage-grid">
         <div class="leverage-card">
           <div class="leverage-card-num">01</div>
-          <div class="leverage-card-title">Software Development</div>
-          <p class="leverage-card-body">Custom internal tools, platform modernization, and AI-native architecture built for the way your business actually operates.</p>
+          <div class="leverage-card-title">Proposals and Bidding</div>
+          <p class="leverage-card-body">Respond to more RFPs, faster, with better win rates. Qualification scoring so you stop chasing work you were never going to get.</p>
         </div>
         <div class="leverage-card">
           <div class="leverage-card-num">02</div>
-          <div class="leverage-card-title">Marketing Automation</div>
-          <p class="leverage-card-body">Campaign workflows, content pipelines, content creation, and CRM intelligence. AI doing the repetitive work so your team can focus on what moves revenue.</p>
+          <div class="leverage-card-title">Marketing and Content</div>
+          <p class="leverage-card-body">Content produced at volume in your voice. Campaign workflows and CRM intelligence that run without another hire. And visibility where it now matters, because your customers are asking AI for recommendations before they ever reach your site.</p>
         </div>
         <div class="leverage-card">
           <div class="leverage-card-num">03</div>
-          <div class="leverage-card-title">Proposals and RFP</div>
-          <p class="leverage-card-body">AI-assisted bidding, response generation, and win-rate analysis. Respond to more opportunities, faster, with higher quality output.</p>
+          <div class="leverage-card-title">Sales and Revenue</div>
+          <p class="leverage-card-body">Call analysis, pipeline visibility, and deal intelligence. Your team closes more without adding to it.</p>
         </div>
         <div class="leverage-card">
           <div class="leverage-card-num">04</div>
           <div class="leverage-card-title">Operations</div>
-          <p class="leverage-card-body">Process automation, reporting, and internal knowledge systems. The back-office work that slows your team down is often the easiest place to start.</p>
-        </div>
-        <div class="leverage-card">
-          <div class="leverage-card-num">05</div>
-          <div class="leverage-card-title">Sales and Revenue</div>
-          <p class="leverage-card-body">Pipeline tooling, outreach automation, and deal intelligence. AI-assisted selling that helps your team close more without adding headcount.</p>
-        </div>
-        <div class="leverage-card">
-          <div class="leverage-card-num">06</div>
-          <div class="leverage-card-title">AI Design and Prototyping</div>
-          <p class="leverage-card-body">Claude-powered interfaces, rapid proof of concept, and design-to-code. See what the solution looks like before you commit to building it.</p>
+          <p class="leverage-card-body">Reporting that builds itself. Document processing nobody touches. Internal knowledge your people can actually find.</p>
         </div>
       </div>
     </div>
@@ -1343,11 +1400,33 @@
     </div>
   </section>
 
+  <!-- READINESS -->
+  <div class="readiness-section" id="readiness">
+    <div class="readiness-inner">
+      <div class="section-eyebrow"><span class="material-symbols-outlined">balance</span>Before You Call Us</div>
+      <h2 class="readiness-heading">The answer is rarely the hard part.</h2>
+      <p class="readiness-body">
+        We usually see it quickly. Whether anything changes depends entirely on whether ownership is willing to hear it.
+      </p>
+      <p class="readiness-body">
+        We have told owners their leadership team was the problem. We have told them the problem was them. <strong>Some acted on it and their companies are better for it. Some stopped returning calls.</strong>
+      </p>
+      <div class="readiness-close">
+        <p class="readiness-body">
+          If you want someone to confirm what you already believe, there are firms for that. If you want the truth and you are prepared to act on it, that is the work we do.
+        </p>
+        <p class="readiness-body">
+          Not every company is ready. We would rather tell you that up front than disrupt your organization unnecessarily.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <!-- CTA BAND -->
   <div class="cta-band">
     <div class="cta-band-inner">
       <h2 class="cta-heading">Start with the diagnostic.</h2>
-      <p class="cta-sub">Free or flat-fee. No open-ended retainer. You'll know more about your technology in 30 days than you do today.</p>
+      <p class="cta-sub">Ninety minutes, remote, no cost. You will leave knowing where technology and AI create the most leverage in your business, whether or not we work together.</p>
       <a href="contact.html" class="cta-btn">
         Book a Diagnostic
         <span class="material-symbols-outlined">arrow_forward</span>
