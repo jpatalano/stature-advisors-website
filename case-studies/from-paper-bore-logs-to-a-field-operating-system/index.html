@@ -108,6 +108,11 @@
     <h3>1. Job and ticket management</h3>
     <p>A Jobs and Tickets dashboard with utility-response tracking and color-coded clearance status: All Clear, Unmarked, Expiring, Expired. Route sheets handle daily crew assignments. A Merge Jobs tool safely reparents records across 15 related tables when duplicate jobs get created in the field, which is the kind of thing that happens constantly on real job sites and quietly corrupts a spreadsheet.</p>
 
+    <figure class="article-figure">
+      <img src="../../img/case-studies/fibertech-tickets-tab.jpg" alt="The Tickets tab of a job record, listing six utility-locate tickets with expiration dates and color-coded All Clear and Unmarked status badges, and a Violation flag on the job header" loading="lazy">
+      <figcaption>The Tickets tab. Every locate ticket carries an expiration date and a clearance state, and the job header rolls the exposure up: three clear, two expiring, one expired. In the spreadsheet era this status only existed if someone had updated the file that week.</figcaption>
+    </figure>
+
     <h3>2. Mobile bore logging</h3>
     <p>This is the core of the field workflow. Rod-by-rod bore logs, extended from an initial 500 foot cap to 1,000 feet to match real long-bore jobs. Pre-bore and post-bore checklists with tap-to-sign digital signatures. Category-tagged photo and video capture per bore. Print-formatted bore logs that match FiberTech's existing paper layout, deliberately, so crews were not asked to learn a new document and a new tool at the same time.</p>
     <p>It also took a string of iOS-specific fixes to make the app reliable on the phones crews actually carry: scroll-lock freezes, auto-zoom on input focus, fullscreen video playback, and media payload sizes large enough to cause upload timeouts.</p>
@@ -118,8 +123,18 @@
     <h3>4. Customer portal</h3>
     <p>Phone and password authentication scoped so each customer sees only their own jobs. Customers review and either verify or dispute individual bore entries. Disputes run through a formal cycle: staff resolution requires a note and returns the item to Awaiting Review rather than silently closing it. Roll-up status badges let a customer see at a glance whether a whole bore is Verified, Pending, or Disputed. Admins get a disputes inbox and a View As impersonation mode for support.</p>
 
+    <figure class="article-figure">
+      <img src="../../img/case-studies/fibertech-disputes.jpg" alt="The admin disputes inbox showing one unresolved item: a customer-flagged bore entry with the disputed footage, the customer's note questioning the rod count, a timestamp, and a Resolve action" loading="lazy">
+      <figcaption>The disputes inbox. A customer questioning billed footage now produces a durable record: which bore, which segment, what they said, and when. Resolving it requires a note. Customer names are redacted here.</figcaption>
+    </figure>
+
     <h3>5. Cost and estimating visibility</h3>
     <p>Estimated Remaining footage, calculated as estimated minus actual across all bores on a job, surfaced consistently on the Bores tab, the Jobs list, and the job detail header. Pipe-size fields auto-fill from logged bore data so office staff stop re-keying numbers the system already holds.</p>
+
+    <figure class="article-figure">
+      <img src="../../img/case-studies/fibertech-bores-tab.jpg" alt="The Bores tab of a job showing eight bores with estimated footage, actual footage, remaining footage, unbilled amounts and progress bars, each row carrying a Verified, Pending or Disputed review badge" loading="lazy">
+      <figcaption>The Bores tab, which is where most of the value concentrates. Estimated against actual footage per bore, remaining footage, unbilled totals, pipe-size breakdown across the job header, and a review state on every row. The bore running 108 percent of estimate is the one the customer disputed. Customer names are redacted here.</figcaption>
+    </figure>
 
     <h2>How it evolved</h2>
     <p>This was not one monolithic release. It moved through phases that tracked FiberTech's own operational priorities.</p>
