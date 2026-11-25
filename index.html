@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stature Advisors: Technology Advisory for Founders & PE Firms</title>
+  <title>Stature Advisors: AI Strategy and Implementation Partner</title>
+  <meta name="description" content="Stature Advisors is your partner for AI strategy and implementation. We define where AI creates real value in your business, then build the agents and custom software to deliver it, in your own accounts. You own all of it." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Stature Advisors: AI Strategy and Implementation Partner" />
+  <meta property="og:description" content="Stature Advisors is your partner for AI strategy and implementation. We define where AI creates real value in your business, then build the agents and custom software to deliver it, in your own accounts. You own all of it." />
+  <meta property="og:image" content="https://statureadvisors.com/img/case-studies/fibertech-811-cover.jpg" />
+  <meta property="og:url" content="https://statureadvisors.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stature Advisors: AI Strategy and Implementation Partner" />
+  <meta name="twitter:description" content="Your partner for AI strategy and implementation, from the first roadmap to systems running in production. You own all of it." />
   <link rel="preconnect" href="https://api.fontshare.com" />
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@300,400,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&display=block" />
@@ -1115,23 +1124,104 @@
       .leverage-intro { grid-template-columns: 1fr; gap: 2rem; }
       .leverage-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── new sections ── */
+    .process-steps { grid-template-columns: repeat(3, 1fr); }
+    .process-close {
+      margin-top: 2rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--fg-muted);
+      max-width: 62ch;
+    }
+    .own-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .own-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--fg-dim);
+      font-size: 0.95rem;
+    }
+    .own-table th {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-align: left;
+      font-weight: 500;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--fg-dim);
+    }
+    .own-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--fg-dim);
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+    .own-table td:first-child { color: var(--fg); }
+    .own-table tr:last-child td { border-bottom: none; }
+    .own-note {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--fg-muted);
+      border-left: 2px solid var(--teal);
+      padding-left: 1.25rem;
+    }
+    .serve-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--fg-dim);
+      border: 1px solid var(--fg-dim);
+      margin-top: 3rem;
+    }
+    .serve-card {
+      background: var(--bg);
+      padding: 3rem 2.5rem;
+    }
+    .leverage-card-wide { grid-column: 1 / -1; }
+    .case-studies-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      color: var(--teal);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .case-studies-all:hover { text-decoration: underline; }
+    @media (max-width: 900px) {
+      .own-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .serve-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .own-table th, .own-table td { padding: 0.75rem; }
+    }
   </style>
+  <style>.footer-links{flex-wrap:wrap;row-gap:.75rem}</style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <a href="/" class="nav-logo" aria-label="Stature Advisors">
+    <a href="index.html" class="nav-logo" aria-label="Stature Advisors">
       <img src="img/sa-logo.svg" alt="Stature Advisors" class="nav-logo-img">
     </a>
     <div class="nav-links">
       <a href="#mandate">About</a>
-      <a href="#deliver">What We Deliver</a>
       <a href="#process">How We Work</a>
+      <a href="#serve">Who We Serve</a>
       <a href="#founders">Founders</a>
-      <a href="#team">Team</a>
       <a href="#case-studies">Case Studies</a>
-      <a href="contact.html" class="nav-cta">Start a Diagnostic</a>
+      <a href="contact.html" class="nav-cta">Talk to a Founder</a>
     </div>
   </nav>
 
@@ -1141,25 +1231,24 @@
 
     <!-- Left: Massive heading -->
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="material-symbols-outlined">insights</span>Technology Advisory</div>
+      <div class="hero-eyebrow"><span class="material-symbols-outlined">insights</span>AI Strategy and Implementation</div>
       <h1 class="hero-heading">
-        Scale<br>
-        without<br>
-        adding<br>
-        <em>headcount.</em>
+        Run by operators.<br>
+        Built by engineers.<br>
+        <em>Owned by you.</em>
       </h1>
     </div>
 
     <!-- Right: Offset content -->
     <div class="hero-right">
       <p class="hero-statement">
-        Most companies automate chaos. We rebuild the process, then automate it.
+        Stature Advisors is your partner for AI strategy and implementation. We work directly with your CEO and leadership team to understand how your business makes money, define where AI creates measurable value, then build the agents and software that put that strategy to work.
       </p>
       <p class="hero-sub">
-        We advise founders and PE firms on where software and automation actually pay off, then build the systems that make it permanent.
+        Everything lives in your Claude, your GitHub and your cloud. You own all of it, and we stay on call.
       </p>
       <a href="contact.html" class="hero-cta">
-        Start a Diagnostic
+        Talk to a Founder
         <span class="material-symbols-outlined">arrow_forward</span>
       </a>
 
@@ -1184,25 +1273,33 @@
   <!-- MARQUEE -->
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-track">
-      <div class="marquee-item">Diagnostic <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Deep Discovery <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Process Rebuild <span class="marquee-dot"></span></div>
+      <div class="marquee-item">AI Strategy <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Implementation <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Learn <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Build <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Support <span class="marquee-dot"></span></div>
       <div class="marquee-item">AI Agents <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Custom Software <span class="marquee-dot"></span></div>
       <div class="marquee-item">Proposals and Bidding <span class="marquee-dot"></span></div>
       <div class="marquee-item">Marketing and Content <span class="marquee-dot"></span></div>
       <div class="marquee-item">Sales and Revenue <span class="marquee-dot"></span></div>
       <div class="marquee-item">Operations <span class="marquee-dot"></span></div>
-      <div class="marquee-item">EBITDA Growth <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Franchise Operations <span class="marquee-dot"></span></div>
+      <div class="marquee-item">PE Portfolio Companies <span class="marquee-dot"></span></div>
       <!-- duplicate for seamless loop -->
-      <div class="marquee-item">Diagnostic <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Deep Discovery <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Process Rebuild <span class="marquee-dot"></span></div>
+      <div class="marquee-item">AI Strategy <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Implementation <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Learn <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Build <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Support <span class="marquee-dot"></span></div>
       <div class="marquee-item">AI Agents <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Custom Software <span class="marquee-dot"></span></div>
       <div class="marquee-item">Proposals and Bidding <span class="marquee-dot"></span></div>
       <div class="marquee-item">Marketing and Content <span class="marquee-dot"></span></div>
       <div class="marquee-item">Sales and Revenue <span class="marquee-dot"></span></div>
       <div class="marquee-item">Operations <span class="marquee-dot"></span></div>
-      <div class="marquee-item">EBITDA Growth <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Franchise Operations <span class="marquee-dot"></span></div>
+      <div class="marquee-item">PE Portfolio Companies <span class="marquee-dot"></span></div>
     </div>
   </div>
 
@@ -1212,22 +1309,17 @@
     <div class="mandate-grid">
       <div>
         <h2 class="mandate-heading">
-          We are business<br>
-          advisors who know<br>
-          where software<br>
-          and automation<br>
-          <em>actually pay off.</em>
+          We are CEOs<br>
+          and <em>software<br>
+          engineers.</em>
         </h2>
       </div>
       <div class="mandate-right">
         <p class="mandate-body">
-          Most technology engagements fail because the people building do not understand the business, and the people running the business do not understand what they are buying. <strong>Software gets sold as the answer long before anyone has defined the question.</strong>
+          Most technology projects fail in the gap between the people who run the business and the people who build the software. <strong>We close that gap by being both.</strong> That is why one team owns your AI strategy, from the first roadmap to the systems running in production.
         </p>
         <p class="mandate-body">
-          We come in, find where technology and AI create real leverage, and tell you honestly whether your organization can execute on it. Then we build the system that makes it permanent.
-        </p>
-        <p class="mandate-body">
-          Every engagement is led by someone who has operated a business, not just advised one.
+          We work directly with owners, CEOs and leadership teams, never through a project manager. The business fundamentals have to be right from the first day, and they have to come from the people who own the numbers. Then our engineers build against them the same week.
         </p>
       </div>
     </div>
@@ -1235,19 +1327,19 @@
     <!-- Pillars -->
     <div class="pillars-grid">
       <div class="pillar">
-        <div class="pillar-num">01. People</div>
-        <div class="pillar-title">The right team for the actual problem</div>
-        <p class="pillar-body">AI tools don't replace judgment, architecture experience, or the understanding of what a business actually needs to scale. We assess your team, identify gaps, and either supplement or redirect before a line of production code is written.</p>
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Straight from the top</div>
+        <p class="pillar-body">We learn your business from the people who run it. No requirements telephone, no layers between the decision and the build.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-num">02. Processes</div>
-        <div class="pillar-title">Engineering that fits how your business operates</div>
-        <p class="pillar-body">Software that ignores your operational reality fails in production, not in demos. We map your workflows first, then design systems that support them, not the other way around.</p>
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Built in your house</div>
+        <p class="pillar-body">Agents and software are built in your Claude, your GitHub and your cloud from the first commit. Nothing lives on our servers.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-num">03. Platforms</div>
-        <div class="pillar-title">Build vs. buy, with the math to back it</div>
-        <p class="pillar-body">SaaS licensing fees were calculated under conditions that no longer apply. The cost to build custom software has collapsed. We help you understand when to build, when to buy, and when to exit a vendor dependency entirely.</p>
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Yours to keep</div>
+        <p class="pillar-body">You own the code, the data and the know-how. Your team makes everyday changes without calling us.</p>
       </div>
     </div>
   </section>
@@ -1256,40 +1348,85 @@
   <div class="process-section" id="process">
     <div class="process-inner">
       <div class="section-eyebrow"><span class="material-symbols-outlined">route</span>How We Work</div>
-      <h2 class="process-heading">Four steps. You can stop after any of them.</h2>
+      <h2 class="process-heading">Three steps. Quick wins first.</h2>
       <div class="process-steps">
         <div class="process-step">
           <div class="step-num">01</div>
-          <div class="step-tag">No cost</div>
-          <div class="step-title">The Diagnostic</div>
-          <p class="step-body">Ninety minutes, remote. We find where technology and AI create the most leverage in your business. You leave with a written read whether or not we work together.</p>
+          <div class="step-tag">Free</div>
+          <div class="step-title">Learn</div>
+          <p class="step-body">A short, focused working session with your CEO and leadership team. We get the fundamentals right, find the low-hanging fruit, and deliver an AI roadmap prioritized by return.</p>
         </div>
         <div class="process-step">
           <div class="step-num">02</div>
-          <div class="step-tag">Onsite or remote</div>
-          <div class="step-title">Deep Discovery</div>
-          <p class="step-body">Not always necessary. When it is, what we need is not a location, it is dedicated focused time from your leadership team. We assess your systems, your process, and the people expected to execute, then come back after the first round of changes to see how the organization actually responded.</p>
+          <div class="step-tag">Ongoing</div>
+          <div class="step-title">Build</div>
+          <p class="step-body">We execute the roadmap. Quick wins go in front of your team fast, then we keep building, one win at a time, in your accounts.</p>
         </div>
         <div class="process-step">
           <div class="step-num">03</div>
-          <div class="step-tag">Stature Software</div>
-          <div class="step-title">The Build</div>
-          <p class="step-body">A working prototype in weeks, not a deck in months. Seeing it real is what exposes the gaps no requirements document ever catches. Then we build the production system on top of what we learned.</p>
-        </div>
-        <div class="process-step">
-          <div class="step-num">04</div>
           <div class="step-tag">Ongoing</div>
-          <div class="step-title">We Support, You Own</div>
-          <p class="step-body">The code, the data, and the process are yours. Your team operates it without us in the loop. We stay involved because you want us there, not because you cannot function otherwise.</p>
+          <div class="step-title">Support</div>
+          <p class="step-body">You own everything. We stay on call, and our hours step down as your team takes over.</p>
         </div>
       </div>
+      <p class="process-close">You can stop at any point. Everything we built stays with you.</p>
+    </div>
+  </div>
+
+  <!-- YOU OWN ALL OF IT -->
+  <section class="section" id="own">
+    <div class="section-eyebrow"><span class="material-symbols-outlined">key</span>Ownership</div>
+    <div class="own-grid">
+      <div>
+        <h2 class="mandate-heading">You own<br><em>all of it.</em></h2>
+        <p class="mandate-body" style="margin-top:2rem;">Most AI agencies and software vendors keep the code, the accounts or the license. <strong>We don't.</strong></p>
+      </div>
+      <div>
+        <table class="own-table">
+          <thead>
+            <tr><th>What</th><th>Where it lives</th><th>Who pays</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>AI agents, prompts and tools</td><td>Your Claude organization</td><td>You</td></tr>
+            <tr><td>Code</td><td>Your GitHub</td><td>You</td></tr>
+            <tr><td>Hosting</td><td>Your cloud account</td><td>You, directly</td></tr>
+            <tr><td>Data</td><td>Your systems</td><td>You</td></tr>
+            <tr><td>Documentation and playbooks</td><td>Your repo</td><td>Included</td></tr>
+          </tbody>
+        </table>
+        <p class="own-note">We stay on call through a support agreement, and you can take everything fully in-house any day without asking us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE SERVE -->
+  <div class="process-section" id="serve">
+    <div class="process-inner">
+      <div class="section-eyebrow"><span class="material-symbols-outlined">storefront</span>Who We Serve</div>
+      <h2 class="process-heading">Built for businesses that need to scale a playbook.</h2>
+      <div class="serve-grid">
+        <div class="serve-card">
+          <div class="pillar-title">PE firms</div>
+          <p class="pillar-body">Build it once, roll it across the portfolio. The system belongs to the portfolio company and goes with it at exit.</p>
+        </div>
+        <div class="serve-card">
+          <div class="pillar-title">Franchise operations</div>
+          <p class="pillar-body">Put the operating manual into the tools every location uses, so the hundredth location runs like the first.</p>
+        </div>
+        <div class="serve-card">
+          <div class="pillar-title">Businesses growing or preparing to franchise</div>
+          <p class="pillar-body">Turn "how we do it" into software and agents before the next location, the next hire or the next buyer asks.</p>
+        </div>
+      </div>
+      <p class="process-close">We typically work with founder-owned businesses between $10M and $75M in revenue, and with PE firms after an acquisition.</p>
     </div>
   </div>
 
   <!-- FOUNDERS -->
   <section class="section" id="founders">
     <div class="section-eyebrow"><span class="material-symbols-outlined">groups</span>The Founders</div>
-    <h2 class="mandate-heading" style="margin-bottom:0;">Two industries.<br><em>One conclusion.</em></h2>
+    <h2 class="mandate-heading" style="margin-bottom:0;">Operators<br><em>and engineers.</em></h2>
+    <p class="mandate-body" style="margin-top:2rem;max-width:60ch;">Every engagement is led by a founder. You will not be handed to a project manager. The build is done by our own engineering team, <a href="https://www.staturesoftware.com/" style="color:var(--teal);">Stature Software</a>.</p>
     <div class="founders-grid">
       <div class="founder-card">
         <img src="img/joe-patalano.jpg" alt="Joe Patalano" class="founder-photo">
@@ -1308,13 +1445,7 @@
         </p>
       </div>
     </div>
-  </section>
-
-  <!-- TEAM -->
-  <section class="section" id="team">
-    <div class="section-eyebrow"><span class="material-symbols-outlined">groups</span>The Team</div>
-    <h2 class="mandate-heading" style="margin-bottom:0;">The Stature<br><em>difference.</em></h2>
-    <div class="team-grid">
+    <div class="team-grid" id="team">
       <div class="team-card">
         <img src="img/jared-conway.jpg" alt="Jared Conway" class="team-photo">
         <div class="team-name">Jared Conway</div>
@@ -1366,12 +1497,17 @@
         <div class="leverage-card">
           <div class="leverage-card-num">03</div>
           <div class="leverage-card-title">Sales and Revenue</div>
-          <p class="leverage-card-body">Call analysis, pipeline visibility, and deal intelligence. Your team closes more without adding to it.</p>
+          <p class="leverage-card-body">Call analysis, pipeline visibility, and deal intelligence. Your team closes more, with better information.</p>
         </div>
         <div class="leverage-card">
           <div class="leverage-card-num">04</div>
           <div class="leverage-card-title">Operations</div>
           <p class="leverage-card-body">Reporting that builds itself. Document processing nobody touches. Internal knowledge your people can actually find.</p>
+        </div>
+        <div class="leverage-card leverage-card-wide">
+          <div class="leverage-card-num">05</div>
+          <div class="leverage-card-title">AI Agents</div>
+          <p class="leverage-card-body">Agents that do real work inside your business: answering questions from your own data, drafting proposals, chasing follow-ups, reconciling numbers. Built in your Claude, governed by your team.</p>
         </div>
       </div>
     </div>
@@ -1389,7 +1525,7 @@
         <div class="case-study-card-body">
           <div class="case-study-card-tag">Construction &middot; AI Integration</div>
           <div class="case-study-card-title">Replacing a Spreadsheet That Ran a Construction Company</div>
-          <p class="case-study-card-dek">Transformed operations from an antiquated spreadsheet driven process to AI driven actionable insights.</p>
+          <p class="case-study-card-dek">A CEO's forecasting workbook became a live web app with an AI analyst, saving 8 to 10 hours a month.</p>
           <div class="case-study-card-footer">
             <img src="img/cameron-patalano.jpg" alt="Cameron Patalano" class="case-study-card-avatar">
             <span>Cameron Patalano</span>
@@ -1413,6 +1549,7 @@
         </div>
       </a>
     </div>
+    <a href="case-studies/" class="case-studies-all">All case studies <span class="material-symbols-outlined">arrow_forward</span></a>
   </section>
 
   <!-- READINESS -->
@@ -1440,10 +1577,10 @@
   <!-- CTA BAND -->
   <div class="cta-band">
     <div class="cta-band-inner">
-      <h2 class="cta-heading">Start with the diagnostic.</h2>
-      <p class="cta-sub">Ninety minutes, remote, no cost. You will leave knowing where technology and AI create the most leverage in your business, whether or not we work together.</p>
+      <h2 class="cta-heading">Start with a conversation.</h2>
+      <p class="cta-sub">Talk to a founder, not a salesperson. If there is a fit, Learn is free and the first wins come fast.</p>
       <a href="contact.html" class="cta-btn">
-        Book a Diagnostic
+        Talk to a Founder
         <span class="material-symbols-outlined">arrow_forward</span>
       </a>
     </div>
@@ -1459,7 +1596,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="cookies.html">Cookies</a>
-      <a href="https://www.staturesoftware.com" target="_blank" rel="noopener">Stature Software</a>
+      <a href="https://www.staturesoftware.com/" target="_blank" rel="noopener">Stature Software</a>
       <a href="contact.html">Contact</a>
     </div>
   </footer>

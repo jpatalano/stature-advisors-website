@@ -643,3 +643,21 @@ nav { animation: fadeDown 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* case study model box */
+.fit-box {
+  margin: 3rem 0 2rem;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(63,168,176,0.35);
+  background: rgba(63,168,176,0.06);
+}
+.fit-box-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+.fit-box ul { margin: 0; padding-left: 1.1rem; }
+.fit-box li { margin-bottom: 0.5rem; line-height: 1.7; }

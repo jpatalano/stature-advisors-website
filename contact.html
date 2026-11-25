@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://api.fontshare.com" />
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@300,400,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>.footer-links{flex-wrap:wrap;row-gap:.75rem}</style>
 </head>
 <body>
   <!-- NAV -->
@@ -18,33 +19,35 @@
     <div class="nav-links">
       <a href="index.html#mandate">About</a>
       <a href="index.html#process">How We Work</a>
+      <a href="index.html#serve">Who We Serve</a>
       <a href="index.html#founders">Founders</a>
-      <a href="contact.html" class="nav-cta">Start a Diagnostic</a>
+      <a href="case-studies/index.html">Case Studies</a>
+      <a href="contact.html" class="nav-cta">Talk to a Founder</a>
     </div>
   </nav>
 
   <div class="page-hero">
     <div class="page-eyebrow">Get in Touch</div>
-    <h1 class="page-title">Start with the diagnostic.</h1>
-    <p class="page-sub">Free or flat-fee. No open-ended retainer. Fill out the form and we'll respond within one business day.</p>
+    <h1 class="page-title">Talk to a founder.</h1>
+    <p class="page-sub">Learn is free. We respond within one business day.</p>
   </div>
 
   <div class="contact-grid">
     <div>
       <div class="contact-info-label">Email</div>
-      <div class="contact-info-value">jpatalano@staturesoftware.com</div>
+      <div class="contact-info-value"><a href="mailto:jpatalano@statureadvisors.com" style="color:var(--fg);">jpatalano@statureadvisors.com</a></div>
 
       <div class="contact-info-label">Based in</div>
       <div class="contact-info-value">Jacksonville, Florida</div>
 
-      <div class="contact-info-label">Build Arm</div>
+      <div class="contact-info-label">Engineering Team</div>
       <div class="contact-info-value">
-        <a href="https://www.staturesoftware.com" target="_blank" rel="noopener" style="color:var(--teal);">staturesoftware.com</a>
+        <a href="https://www.staturesoftware.com/" target="_blank" rel="noopener" style="color:var(--teal);">staturesoftware.com</a>
       </div>
 
       <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--fg-dim);">
         <p style="font-size:0.88rem;color:var(--fg-muted);line-height:1.8;">
-          The diagnostic is a structured 30-day engagement designed to give you a clear picture of where technology is helping your business, and where it's quietly limiting it.
+          Every conversation is with a founder. If there is a fit, we start with Learn: a short, focused working session with your leadership team to get the fundamentals right and find the quick wins.
         </p>
       </div>
     </div>
@@ -63,6 +66,36 @@
         <div class="form-group">
           <label for="company">Company</label>
           <input type="text" id="company" name="company" placeholder="Company name" />
+        </div>
+        <div class="form-group">
+          <label for="role">Your role</label>
+          <select id="role" name="role" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Owner / CEO</option>
+            <option>Executive</option>
+            <option>PE partner</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="business_type">Business type</label>
+          <select id="business_type" name="business_type" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Founder-owned</option>
+            <option>PE-backed</option>
+            <option>Franchise</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="revenue">Annual revenue (optional)</label>
+          <select id="revenue" name="revenue">
+            <option value="" selected>Prefer not to say</option>
+            <option>Under $10M</option>
+            <option>$10M to $25M</option>
+            <option>$25M to $75M</option>
+            <option>Over $75M</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="context">What are you working on?</label>
@@ -88,7 +121,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="cookies.html">Cookies</a>
-      <a href="https://www.staturesoftware.com" target="_blank" rel="noopener">Stature Software</a>
+      <a href="https://www.staturesoftware.com/" target="_blank" rel="noopener">Stature Software</a>
       <a href="contact.html">Contact</a>
     </div>
   </footer>

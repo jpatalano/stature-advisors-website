@@ -9,7 +9,7 @@
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Replacing a Spreadsheet That Ran a Construction Company" />
-  <meta property="og:description" content="Transformed operations from an antiquated spreadsheet driven process to AI driven actionable insights." />
+  <meta property="og:description" content="A CEO's forecasting workbook became a live web app with an AI analyst, saving 8 to 10 hours a month." />
   <meta property="og:image" content="https://statureadvisors.com/img/case-studies/replacing-a-spreadsheet-cover.jpg" />
   <meta property="og:url" content="https://statureadvisors.com/case-studies/replacing-a-spreadsheet-that-ran-a-construction-company/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -29,6 +29,7 @@
       vertical-align: middle;
     }
   </style>
+  <style>.footer-links{flex-wrap:wrap;row-gap:.75rem}</style>
 </head>
 <body>
   <nav>
@@ -38,9 +39,10 @@
     <div class="nav-links">
       <a href="../../index.html#mandate">About</a>
       <a href="../../index.html#process">How We Work</a>
+      <a href="../../index.html#serve">Who We Serve</a>
       <a href="../../index.html#founders">Founders</a>
-      <a href="../../index.html#case-studies">Case Studies</a>
-      <a href="../../contact.html" class="nav-cta">Start a Diagnostic</a>
+      <a href="../../case-studies/index.html">Case Studies</a>
+      <a href="../../contact.html" class="nav-cta">Talk to a Founder</a>
     </div>
   </nav>
 
@@ -178,7 +180,7 @@
     <h3>5. An AI layer that answers questions directly from the data</h3>
     <p>Every screen described so far answers a question somebody already knew to ask. The problem with any dashboard is that it can only answer the questions its author anticipated. Real forecasting questions arrive in plain English, they arrive once, and they are rarely the ones on the menu.</p>
     <p>So the last layer is an assistant built on Anthropic Claude, sitting directly on top of the same database. It is not a chatbot bolted onto the side, and it does not summarize a report that was already generated. It is a tool-using agent with read access to the model, and it composes its own SQL queries to answer whatever it's asked.</p>
-    <p>Claude is given three things at the start of every conversation: the live database schema, introspected at runtime so it can never drift out of date; a set of hand-written notes explaining what a schema dump can't express, such as the fact that jobs join to Procore on name rather than job number; and eleven tools, including list jobs, job detail, portfolio totals, year phasing, Procore coverage, provenance summary, reconciliation status, audit log, a schema describer, and a read-only SQL escape hatch for anything the other ten can't reach.</p>
+    <p>Claude is given three things at the start of every conversation: the live database schema, introspected at runtime so it can never drift out of date; a set of hand-written notes explaining what a schema dump can't express, such as the fact that jobs join to Procore on name rather than job number; and ten tools: list jobs, job detail, portfolio totals, year phasing, Procore coverage, provenance summary, reconciliation status, audit log, a schema describer, and a read-only SQL escape hatch for anything the other nine can't reach.</p>
 
     <div class="pull-quote">A language model writing SQL against a production database is a serious idea only if the database cannot be harmed by it.</div>
 
@@ -204,6 +206,15 @@
     <h2>Results</h2>
     <p>The time saving is the headline, but the durable win is different. The forecast is no longer one person and one file. It is a schema, a tested engine, a set of provenance labels, and an audit trail. Anyone with access can ask it a question, and every number it returns can be traced to where it came from.</p>
 
+    <div class="fit-box">
+      <div class="fit-box-label">How it fits the model</div>
+      <ul>
+        <li><strong>Built in the client's accounts.</strong> The code, hosting and AI tools run in accounts the client owns.</li>
+        <li><strong>The client owns it.</strong> Code, data and documentation stay with the business.</li>
+        <li><strong>Stature on support.</strong> We stay on call while the client's team takes over everyday changes.</li>
+      </ul>
+    </div>
+
     <div class="article-about">
       <img src="../../img/cameron-patalano.jpg" alt="Cameron Patalano headshot">
       <div>
@@ -216,7 +227,7 @@
   <div class="more-reading">
     <div class="more-reading-label">Keep exploring</div>
     <div class="more-reading-links">
-      <a href="../../index.html#case-studies">
+      <a href="../index.html">
         <span class="material-symbols-outlined">grid_view</span>
         More Case Studies
       </a>
@@ -226,7 +237,7 @@
       </a>
       <a href="../../contact.html">
         <span class="material-symbols-outlined">arrow_forward</span>
-        Start a Diagnostic
+        Talk to a Founder
       </a>
     </div>
   </div>
@@ -240,7 +251,7 @@
       <a href="../../privacy.html">Privacy</a>
       <a href="../../terms.html">Terms</a>
       <a href="../../cookies.html">Cookies</a>
-      <a href="https://www.staturesoftware.com" target="_blank" rel="noopener">Stature Software</a>
+      <a href="https://www.staturesoftware.com/" target="_blank" rel="noopener">Stature Software</a>
       <a href="../../contact.html">Contact</a>
     </div>
   </footer>
